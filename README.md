@@ -12,16 +12,18 @@ BellmanFord - this algorithm can handle edges with negative weights to compute r
 FloydWarshall - this algorithm can compute routes from every point to every point.
 
 # Statistics on grids
+```
 GRID 10x10 nodes
-Dijkstra:1445ms
-QuickDijkstra:123ms
-FibonacciDijkstra:251ms
-BellmanFord:620ms
-FloydWarshall:111ms
+-Dijkstra:1445ms
+-QuickDijkstra:123ms
+-FibonacciDijkstra:251ms
+-BellmanFord:620ms
+-FloydWarshall:111ms
 
 GRID OF 20x20 nodes
-Dijkstra:116252ms
-QuickDijkstra:1998ms
-FibonacciDijkstra:4287ms
-BellmanFord:21662ms
-FloydWarshall:5747ms
+-Dijkstra:116252ms
+-QuickDijkstra:1998ms
+-FibonacciDijkstra:4287ms
+-BellmanFord:21662ms
+-FloydWarshall:5747ms
+```

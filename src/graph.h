@@ -19,6 +19,8 @@ public:
 class Graph{
 	std::map<int,Node*> mNodes;
 public:
+	Graph(){}
+	virtual ~Graph(){RemoveAll();}
 	virtual std::map<int,Node*>& GetNodes(){return mNodes;}
 	virtual void SetDistance(int start, int goal, int distance)
 	{

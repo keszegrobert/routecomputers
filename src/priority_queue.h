@@ -31,7 +31,7 @@ private:
 	}
 
 	void PopToValid(){
-		if (mPriorities.size() == 0)
+		if (mPriorities.empty())
 			return;			
 
 		do {
@@ -69,7 +69,7 @@ public:
 	}
 
 	virtual void Pop(){
-		if (mPriorities.size() == 0)
+		if (mPriorities.empty())
 			return;
 
 		int index = GetTop();

@@ -14,6 +14,14 @@ private:
 
 public:
 	FloydWarshall():mStart(-1),mGraph(NULL),mDistTable(NULL),mNodeCount(0){}
+	virtual ~FloydWarshall(){
+		for (size_t i = 0; i < mNodeCount; ++i)
+		{
+			delete[] mDistTable[i];
+			mDistTable[i] = NULL;
+		}
+		delete[] mDistTable;
+	}
 	virtual void SetGraph(Graph* g){
 		mGraph = g;
 		std::map<int,Node*>& nodes = mGraph->GetNodes();
@@ -21,7 +29,6 @@ public:
 		mDistTable = new int*[mNodeCount];
 		std::map<int,Node*>::iterator it;
 		int i = 0;
-		std::map<int,Node*>::iterator itj;
 		for (it = nodes.begin(); it != nodes.end(); ++it)
 			mNodeMapping[it->first] = i++;
 
@@ -39,7 +46,7 @@ public:
 			Node* node = it->second;
 			std::map<int,int>& adjacent = node->GetAdjacent();
 			std::map<int,int>::iterator it2;
-			for (std::map<int,int>::iterator it2 = adjacent.begin(); it2 != adjacent.end(); ++it2)
+			for (it2 = adjacent.begin(); it2 != adjacent.end(); ++it2)
 			{
 				int j = mNodeMapping[it2->first];
 				mDistTable[i][j] = it2->second;
@@ -49,7 +56,7 @@ public:
 	}
 
 	virtual void SetStart(int start){
-		if (!mNodeMapping.size() || mNodeMapping.find(start) == mNodeMapping.end())
+		if (mNodeMapping.empty() || mNodeMapping.find(start) == mNodeMapping.end())
 		{
 			std::cout << "SetStart start=" <<start<< " not found" <<std::endl;
 		}
@@ -113,6 +120,9 @@ public:
 				return false;
 			}
 			ApplyChanges(changes);
+			for (size_t j = 0; j<mNodeCount; ++j)
+				delete[] changes[j];
+			delete[] changes;
 		}
 		return true;
 	}

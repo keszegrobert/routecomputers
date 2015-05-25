@@ -6,14 +6,14 @@
 cmake_minimum_required(VERSION 2.8)
 project ( routecomp )
 set(TASIM_VERSION 1.0.0)
-set(GTEST_DIR "../googletest-read-only/include")
+set(GTEST_DIR "../gtest-1.7.0/include")
 
 set(GTEST_HEADERS $(GTEST_DIR)/gtest/*.h
 				$(GTEST_DIR)/gtest/internal/*.h)
 
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR
     "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
-    set(warnings "-Wall -Wextra -Werror -I$(GTEST_DIR)")
+    set(warnings "-O1 -g -Wall -Wextra -Werror -I$(GTEST_DIR)")
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
     set(warnings "/W4 /WX /EHsc")
 endif()

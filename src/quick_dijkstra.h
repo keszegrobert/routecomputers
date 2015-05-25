@@ -16,7 +16,7 @@ public:
 
 		std::queue<int> q;
 		q.push(mStart);
-		while (q.size()>0)
+		while (!q.empty())
 		{
 			int index = q.front();
 			q.pop();

@@ -263,6 +263,10 @@ TEST_F(SampleGraphFloydWarshall,floydwarshall_update)
 	ASSERT_EQ(6,d.GetDistanceTo(4));
 	ASSERT_EQ(0,d.GetDistanceTo(5));
 
+	for (size_t j = 0; j<nodes.size(); ++j)
+		delete[] changes[j];
+	delete[] changes;
+
 }
 
 TEST_F(SampleGraphFloydWarshall,floydwarshall_compute)

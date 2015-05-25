@@ -7,7 +7,7 @@ protected:
 	std::map<int,int> mDistances;	
 
 public:
-	Dijkstra():mGraph(NULL),mStart(-1){}
+	Dijkstra():mStart(-1),mGraph(NULL){}
 	void SetGraph(Graph* g){mGraph = g;}
 
 	std::map<int,int>& GetFromWhere(){return mFromWhere;}
